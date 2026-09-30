@@ -1,10 +1,6 @@
-### [buy me coffe](https://buymeacoffee.com/soufiane_11)
-
-# We have a goal to complete 1000 member in discord.
-# [Join Discord](https://discord.gg/dcm4TNtbGQ)
-
 # Framework Support
 ## [QBCore](https://github.com/qbcore-framework) | [ESX](https://github.com/esx-framework)
+
 # SF Camera Security
 For all support questions, ask in our [Discord](https://discord.gg/dcm4TNtbGQ) support chat. Do not create issues if you need help. Issues are for bug reporting and new features only.
 
@@ -12,7 +8,7 @@ For all support questions, ask in our [Discord](https://discord.gg/dcm4TNtbGQ) s
 - [Youtube Link](https://youtu.be/lK5qils5oCA?si=aGbLCtcj-wX7Kpxx)
 
 ## Dependencies
-- [qb-core](https://github.com/qbcore-framework/qb-core)
+- [qb-core](https://github.com/qbcore-framework/qb-core) or [es_extended](https://github.com/esx-framework/esx_core/tree/main/%5Bcore%5D/es_extended)
 - [oxmysql](https://github.com/overextended/oxmysql/releases)
 - [ox_lib](https://github.com/overextended/ox_lib/releases)
 
@@ -20,11 +16,11 @@ For all support questions, ask in our [Discord](https://discord.gg/dcm4TNtbGQ) s
 - Download ZIP and UNZIP.
 - Drag and drop resource into your server files, make sure to remove -main in the folder name.
 - SQL Automatic added to your database no need to add manually.
-- add images from folder **(install/item-images)** to **(qb-inventory/html/images)**.
+- add images from folder **(install/item-images)** to **Inventory Images Location**.
 
 
 ### Be careful, if you are use ``ox_inventory`` in QBCore framework dont add items in ``qb-core`` resource, require to add items in ``ox_inventory/data/items.lua`` ONLY.
-### qb-inventory
+### qb-inventory / ps-inventory
 #### Add Items to **(qb-core/shared/items.lua)**
 ```language
 -- // Cameras
@@ -39,8 +35,23 @@ camera_personal = { name = 'camera_personal', label = 'Personal Camera', weight 
 vpn = {name = 'vpn', label = 'VPN Router', weight = 1000, type = 'item', image = 'vpn.png', unique = true, useable = false, shouldClose = false, combinable = nil, description = ''},
 ```
 
+### codem-inventory
+#### Add Items to **(codem-inventory/config/itemlist.lua)**
+```language
+-- // Cameras
+camera_pd = {name = 'camera_pd', label = 'PD Camera', weight = 3000,	type = 'item', image = 'camera_pd.png',	unique = true, useable = true, shouldClose = true, combinable = nil, description = ''},
+camera_ems = { name = 'camera_ems', label = 'EMS Camera', weight = 3000, type = 'item', image = 'camera_ems.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = '' },
+camera_citizen = { name = 'camera_citizen', label = 'Camera', weight = 3000, type = 'item', image = 'camera_citizen.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = '' },
+camera_viewer = { name = 'camera_viewer', label = 'Camera Viewer', weight = 1000, type = 'item', image = 'camera_viewer.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = '' },
+camera_paper = { name = 'camera_paper', label = 'Camera Signal Paper', weight = 200, type = 'item', image = 'camera_paper.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = '' },
+camera_tablet = { name = 'camera_tablet', label = 'CamView Tablet', weight = 2000, type = 'item', image = 'camera_tablet.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = '' },
+camera_personaltablet = { name = 'camera_personaltablet', label = 'Personal CamView', weight = 2000, type = 'item', image = 'camera_personaltablet.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = '' },
+camera_personal = { name = 'camera_personal', label = 'Personal Camera', weight = 3000, type = 'item', image = 'camera_personal.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = '' },
+vpn = {name = 'vpn', label = 'VPN Router', weight = 1000, type = 'item', image = 'vpn.png', unique = true, useable = false, shouldClose = false, combinable = nil, description = ''},
+```
+
 ### qs-inventory
-#### Add Items to **qs-inventory\shared\item.lua**
+#### Add Items to **(qs-inventory\shared\item.lua)**
 ```language
 -- // Cameras
     ["camera_pd"] = {
@@ -292,9 +303,4 @@ vpn = {name = 'vpn', label = 'VPN Router', weight = 1000, type = 'item', image =
 ```language
 screwdriverset               = { name = 'screwdriverset', label = 'Toolkit', weight = 1000, type = 'item', image = 'screwdriverset.png', unique = false, useable = false, shouldClose = false, combinable = nil, description = 'Very useful to screw... screws...' },
 ```
-### If you are use qb-inventory go this file `qb-inventory/html/js/app.js` and go line 343 and add this code
-```language
-case "camera_paper":
-      return `<p><strong>Camera Signal: </strong><span>${itemData.info.signal}</span>`;
-```
-- Final step check the **config.lua** if you want modify some config.
+## Final step check the **config.lua** if you want modify some config.
